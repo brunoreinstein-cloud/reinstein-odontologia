@@ -8,28 +8,30 @@ function PainSection() {
     <section className="section section--cream" id="reabilitacao">
       <div className="container pain-grid">
         <div className="reveal">
-          <span className="eyebrow">Reabilitação</span>
-          <h2 style={{ marginTop: 18 }}>Seu sorriso influencia mais do que a estética.</h2>
+          <span className="eyebrow">Estética com base clínica</span>
+          <h2 style={{ marginTop: 18 }}>Sorriso é técnica e arte — e os dois precisam andar juntos.</h2>
           <p style={{ marginTop: 24, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.7 }}>
-            Dentes desgastados, ausentes, escurecidos, desalinhados ou restaurações antigas
-            podem afetar a mastigação, a fala, a autoestima e a segurança para sorrir.
+            Não existe estética sem função. Por isso, cada lente, faceta ou tratamento
+            começa por entender o sorriso por inteiro — proporção, mordida, gengiva,
+            saúde bucal e as expectativas do paciente.
           </p>
           <p style={{ marginTop: 16, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.7 }}>
-            A odontologia moderna permite reconstruir o sorriso com mais naturalidade,
-            conforto e previsibilidade — respeitando o rosto, a história e as necessidades
-            de cada paciente.
+            O resultado pretende ser bonito porque é equilibrado — não o contrário.
+            É essa combinação de técnica e arte que sustenta um sorriso natural ao
+            longo do tempo.
           </p>
           <div className="pain-chips">
-            {["Mastigação", "Fala", "Autoestima", "Estética", "Função", "Conforto"].map((c) => (
+            {["Proporção", "Cor", "Brilho", "Função", "Naturalidade", "Equilíbrio"].map((c) => (
               <span key={c} className="chip">{c}</span>
             ))}
           </div>
         </div>
         <div className="pain-quote reveal reveal-delay-2">
           <p className="lead">
-            No consultório do Dr. Anderson Reinstein, cada tratamento começa com uma
-            avaliação cuidadosa para entender o que precisa ser recuperado: estética,
-            função, conforto, saúde bucal — ou todos esses pontos juntos.
+            No consultório do Dr. Anderson Reinstein, cada plano estético nasce do
+            encontro entre a história do paciente, suas expectativas e a técnica
+            certa para o caso — com 15 anos de prática clínica sustentando cada
+            decisão.
           </p>
         </div>
       </div>
@@ -42,35 +44,35 @@ function PainSection() {
    ============================================================ */
 const TREATMENTS = [
   {
-    num: "01 / Reabilitação completa",
-    title: "Reabilitação oral",
-    body: "Tratamento integrado para casos que exigem reconstrução mais completa do sorriso — combinando função, estética e planejamento clínico de longo prazo.",
-    icon: <Icon.Layers />,
+    num: "01 / Estética de alta precisão",
+    title: "Lentes cerâmicas",
+    body: "Tratamento estético para harmonizar forma, proporção, cor e brilho dos dentes — sempre planejado a partir das características faciais e da saúde bucal do paciente.",
+    icon: <Icon.Sparkle />,
     featured: true,
   },
   {
     num: "02",
-    title: "Implantes dentários",
-    body: "Solução para substituir dentes perdidos, recuperar a mastigação e devolver mais segurança ao sorrir.",
-    icon: <Icon.Implant />,
+    title: "Odontologia estética",
+    body: "Clareamento, restaurações estéticas e ajustes de proporção que respeitam a beleza natural do sorriso e a função.",
+    icon: <Icon.Smile />,
   },
   {
     num: "03",
-    title: "Próteses dentárias",
-    body: "Planejamento para reabilitar função, estética e equilíbrio do sorriso em casos de perdas, desgastes ou reconstrução oral.",
-    icon: <Icon.Tooth />,
+    title: "Reabilitação oral",
+    body: "Para casos que combinam estética e função em um plano mais amplo — reconstrução completa do sorriso com técnica e cuidado em cada etapa.",
+    icon: <Icon.Layers />,
   },
   {
     num: "04",
-    title: "Lentes cerâmicas",
-    body: "Tratamento estético indicado para melhorar forma, proporção, cor e harmonia dos dentes — sempre após avaliação individual.",
-    icon: <Icon.Sparkle />,
+    title: "Implantes dentários",
+    body: "Substituição de dentes perdidos com previsibilidade, recuperando mastigação, estética e segurança ao sorrir.",
+    icon: <Icon.Implant />,
   },
   {
     num: "05",
-    title: "Odontologia estética",
-    body: "Procedimentos voltados à beleza natural do sorriso, respeitando características faciais e a saúde bucal do paciente.",
-    icon: <Icon.Smile />,
+    title: "Próteses dentárias",
+    body: "Próteses fixas ou removíveis planejadas para reabilitar função, estética e equilíbrio do sorriso.",
+    icon: <Icon.Tooth />,
   },
 ];
 
@@ -108,10 +110,11 @@ function TreatmentsSection() {
    AUTHORITY
    ============================================================ */
 const DIFFERENTIALS = [
-  "Atendimento personalizado, paciente por paciente",
+  "15 anos de prática clínica",
+  "Foco em odontologia estética, lentes cerâmicas e reabilitação",
   "Planejamento estético e funcional integrado",
-  "Foco em prótese, implantes e reabilitação oral",
-  "Olhar clínico aliado à gestão em saúde",
+  "Atendimento personalizado, paciente por paciente",
+  "Olhar técnico aliado à gestão em saúde",
   "Consultórios em Cachoeirinha e Porto Alegre",
 ];
 
@@ -130,15 +133,17 @@ function AuthoritySection() {
         <div className="reveal reveal-delay-2">
           <span className="eyebrow">Sobre o profissional</span>
           <h2 style={{ marginTop: 18 }}>
-            Experiência clínica com visão completa de cuidado.
+            15 anos transformando sorrisos com técnica e responsabilidade clínica.
           </h2>
           <p style={{ marginTop: 24, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.7 }}>
-            O Dr. Anderson Rocha Reinstein é cirurgião-dentista, CRO 17951, especializado
-            em próteses dentárias e implantes, com MBA em Gestão em Saúde.
+            Há mais de 15 anos, o Dr. Anderson Rocha Reinstein atua em odontologia
+            estética, lentes cerâmicas e reabilitação oral. Cirurgião-dentista, CRO 17951,
+            é especialista em Prótese Dentária e Implantes, com MBA em Gestão em Saúde.
           </p>
           <p style={{ marginTop: 16, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.7 }}>
-            Sua atuação é voltada para pacientes que buscam tratamentos odontológicos
-            com planejamento, responsabilidade, estética natural e acompanhamento próximo.
+            Sua prática é voltada para pacientes que buscam um sorriso planejado com
+            estética natural, função preservada e acompanhamento próximo — em todas as
+            etapas do tratamento.
           </p>
           <ul className="differentials">
             {DIFFERENTIALS.map((d) => (

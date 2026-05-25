@@ -257,7 +257,7 @@ function Nav({ theme, toggleTheme }) {
             <span className="brand-mark">AR</span>
             <span className="brand-text">
               Dr. Anderson Reinstein
-              <small>Odontologia · CRO 17951</small>
+              <small>Odontologia Estética · 15 anos</small>
             </span>
           </a>
           <nav className="nav-links" aria-label="Principal">
@@ -327,16 +327,16 @@ function Hero() {
       <div className="container hero-grid">
         <div className="reveal in">
           <div className="hero-badges">
-            <span className="badge"><span className="badge-dot" /> Atendimento personalizado</span>
+            <span className="badge"><span className="badge-dot" /> 15 anos de prática clínica</span>
             <span className="badge"><span className="badge-dot" /> Cachoeirinha · Porto Alegre</span>
           </div>
           <h1>
-            Volte a sorrir com <em>segurança</em>, naturalidade e confiança.
+            Sorrisos planejados com técnica, arte e <em>naturalidade</em>.
           </h1>
           <p className="hero-sub">
-            Reabilitação oral, implantes e lentes cerâmicas com planejamento personalizado.
-            Cada tratamento começa por uma avaliação cuidadosa — para entender o que
-            precisa ser recuperado em estética, função e conforto.
+            Odontologia estética, lentes cerâmicas e reabilitação oral — com planejamento
+            individual para cada caso. Cada plano nasce do encontro entre a história do
+            paciente, suas expectativas e a técnica certa para o sorriso.
           </p>
           <div className="hero-cta">
             <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="btn btn-whatsapp">
@@ -363,9 +363,9 @@ function Hero() {
             <span>foto profissional · consultório clínico</span>
           </div>
           <div className="hero-stamp" aria-hidden="true">
-            <span>desde</span>
-            <strong>CRO 17951</strong>
-            <span>responsabilidade clínica</span>
+            <strong>15</strong>
+            <span className="hero-stamp-label">anos</span>
+            <span className="hero-stamp-sub">de prática clínica</span>
           </div>
         </div>
       </div>

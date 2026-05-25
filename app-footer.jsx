@@ -112,20 +112,20 @@ function LocationSection() {
    ============================================================ */
 const FAQS = [
   {
+    q: "Lentes cerâmicas são indicadas para todos os pacientes?",
+    a: "Não. A indicação depende da análise dos dentes, mordida, saúde gengival e expectativa estética. A avaliação clínica define se as lentes são a melhor opção para o seu caso — ou se outro tratamento estético se encaixa melhor.",
+  },
+  {
+    q: "Como funciona o planejamento estético?",
+    a: "Antes de qualquer procedimento, são analisadas características faciais, proporção dos dentes, mordida, saúde gengival e a expectativa do paciente. A partir disso, é construído um plano que respeita a beleza natural do sorriso e a função.",
+  },
+  {
+    q: "Quanto tempo dura um tratamento estético?",
+    a: "O tempo varia conforme o tipo de procedimento e a complexidade do caso. Tratamentos como lentes cerâmicas costumam envolver poucas sessões, enquanto reabilitações mais amplas têm etapas. Tudo é apresentado no plano de tratamento.",
+  },
+  {
     q: "Implante dentário dói?",
     a: "O procedimento é realizado com anestesia e planejamento clínico. A experiência pode variar conforme cada caso, e todos os cuidados são explicados durante a avaliação.",
-  },
-  {
-    q: "Lentes cerâmicas são indicadas para qualquer pessoa?",
-    a: "Não. A indicação depende da análise dos dentes, mordida, saúde gengival e expectativa estética do paciente.",
-  },
-  {
-    q: "Tenho dentes ausentes. Posso fazer reabilitação oral?",
-    a: "Em muitos casos, sim. A melhor solução pode envolver implantes, próteses ou um plano combinado, dependendo da avaliação clínica.",
-  },
-  {
-    q: "Quanto tempo dura o tratamento?",
-    a: "O tempo varia conforme a complexidade do caso, o tipo de procedimento e as etapas necessárias. Tudo é apresentado no plano de tratamento.",
   },
   {
     q: "Posso ver casos anteriores?",
@@ -180,17 +180,17 @@ function ClosingSection() {
     <section className="section section--deep" id="agendar">
       <div className="container-narrow closing reveal">
         <span className="eyebrow">Próximo capítulo do seu sorriso</span>
-        <h2>Recupere a confiança de sorrir, mastigar e viver com mais segurança.</h2>
-        <p className="lead" style={{ color: "oklch(85% 0.02 215)", maxWidth: "44ch" }}>
-          Seu sorriso merece um plano de cuidado feito com responsabilidade, técnica
-          e atenção aos detalhes.
+        <h2>Vamos planejar juntos o seu próximo sorriso.</h2>
+        <p className="lead" style={{ color: "var(--ink-invert-soft)", maxWidth: "46ch" }}>
+          Estética, função e história — um plano de cuidado feito com técnica, arte
+          e 15 anos de prática clínica.
         </p>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="btn btn-whatsapp" style={{ padding: "18px 36px", fontSize: 16 }}>
           <Icon.Whatsapp /> Agendar avaliação agora
         </a>
         <div className="closing-credentials">
           <strong>Dr. Anderson Rocha Reinstein</strong>
-          <span>Cirurgião-dentista · CRO 17951</span>
+          <span>Cirurgião-dentista · CRO 17951 · 15 anos de prática clínica</span>
           <span>Especialista em Prótese Dentária e Implantes · MBA em Gestão em Saúde</span>
         </div>
       </div>
@@ -209,14 +209,15 @@ function Footer() {
           <div className="footer-brand">
             <span className="brand">
               <span className="brand-mark">AR</span>
-              <span className="brand-text" style={{ color: "oklch(92% 0.012 80)" }}>
+              <span className="brand-text">
                 Dr. Anderson Reinstein
-                <small style={{ color: "oklch(65% 0.02 215)" }}>Odontologia · CRO 17951</small>
+                <small>Odontologia Estética · 15 anos · CRO 17951</small>
               </span>
             </span>
             <p>
-              Reabilitação oral, implantes e estética dental com planejamento preciso e
-              cuidado individualizado. Atendimento em Cachoeirinha e Porto Alegre.
+              Odontologia estética, lentes cerâmicas e reabilitação oral com planejamento
+              individual e 15 anos de prática clínica. Atendimento em Cachoeirinha e
+              Porto Alegre.
             </p>
           </div>
 
