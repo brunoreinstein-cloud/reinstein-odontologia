@@ -1,20 +1,22 @@
 /* global React, ReactDOM,
-   Nav, Hero, useReveal,
-   PainSection, TreatmentsSection, AuthoritySection, PortfolioSection, TrustSection, ProcessSection, MidCTA,
+   Nav, Hero, useReveal, useTheme,
+   PainSection, TreatmentsSection, AuthoritySection,
+   IGFeedSection, TrustSection, ProcessSection, MidCTA,
    LocationSection, FAQSection, ClosingSection, Footer, FloatingWA
 */
 
 function App() {
   useReveal();
+  const { theme, toggle } = useTheme();
   return (
     <React.Fragment>
-      <Nav />
+      <Nav theme={theme} toggleTheme={toggle} />
       <main>
         <Hero />
         <PainSection />
         <TreatmentsSection />
         <AuthoritySection />
-        <PortfolioSection />
+        <IGFeedSection />
         <TrustSection />
         <ProcessSection />
         <MidCTA />

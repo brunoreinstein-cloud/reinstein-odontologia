@@ -103,6 +103,17 @@ const Icon = {
       <polyline points="5 12 10 17 19 8"/>
     </svg>
   ),
+  Sun: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <circle cx="12" cy="12" r="4"/>
+      <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+    </svg>
+  ),
+  Moon: () => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>
+    </svg>
+  ),
 };
 
 /* ============================================================
@@ -110,6 +121,71 @@ const Icon = {
    ============================================================ */
 const WHATSAPP_URL = "https://wa.me/5551998563574?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
 const INSTAGRAM_URL = "https://www.instagram.com/dr.andersonreinstein/";
+const THEME_KEY = "ar-theme";
+
+/* ============================================================
+   Theme
+   ============================================================ */
+function getInitialTheme() {
+  if (typeof window === "undefined") return "light";
+  // Honor a pre-paint script that may have already set data-theme
+  const fromDOM = document.documentElement.getAttribute("data-theme");
+  if (fromDOM === "light" || fromDOM === "dark") return fromDOM;
+  try {
+    const stored = localStorage.getItem(THEME_KEY);
+    if (stored === "light" || stored === "dark") return stored;
+  } catch (_) { /* storage may be blocked */ }
+  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    return "dark";
+  }
+  return "light";
+}
+
+function useTheme() {
+  const [theme, setTheme] = useState(getInitialTheme);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    try { localStorage.setItem(THEME_KEY, theme); } catch (_) {}
+  }, [theme]);
+
+  // Sync with system changes when user has no explicit preference
+  useEffect(() => {
+    if (!window.matchMedia) return;
+    const mq = window.matchMedia("(prefers-color-scheme: dark)");
+    const onChange = (e) => {
+      try {
+        const stored = localStorage.getItem(THEME_KEY);
+        if (stored) return; // user explicitly chose a theme
+      } catch (_) {}
+      setTheme(e.matches ? "dark" : "light");
+    };
+    if (mq.addEventListener) mq.addEventListener("change", onChange);
+    else mq.addListener(onChange);
+    return () => {
+      if (mq.removeEventListener) mq.removeEventListener("change", onChange);
+      else mq.removeListener(onChange);
+    };
+  }, []);
+
+  const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+  return { theme, toggle };
+}
+
+function ThemeToggle({ theme, toggle, className = "" }) {
+  const label = theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro";
+  return (
+    <button
+      type="button"
+      className={`theme-toggle ${className}`}
+      onClick={toggle}
+      aria-label={label}
+      title={label}
+    >
+      {theme === "dark" ? <Icon.Sun /> : <Icon.Moon />}
+    </button>
+  );
+}
 
 /* ============================================================
    Reveal-on-scroll hook
@@ -117,6 +193,10 @@ const INSTAGRAM_URL = "https://www.instagram.com/dr.andersonreinstein/";
 function useReveal() {
   useEffect(() => {
     const els = document.querySelectorAll(".reveal");
+    if (!("IntersectionObserver" in window)) {
+      els.forEach((el) => el.classList.add("in"));
+      return;
+    }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
@@ -136,9 +216,10 @@ function useReveal() {
 /* ============================================================
    NAV
    ============================================================ */
-function Nav({ onToast }) {
+function Nav({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const toggleRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -149,6 +230,15 @@ function Nav({ onToast }) {
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
+    if (!open && toggleRef.current) toggleRef.current.focus();
+  }, [open]);
+
+  // Close mobile menu on Escape
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e) => { if (e.key === "Escape") setOpen(false); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [open]);
 
   const links = [
@@ -176,17 +266,30 @@ function Nav({ onToast }) {
             ))}
           </nav>
           <div className="nav-cta">
+            <ThemeToggle theme={theme} toggle={toggleTheme} />
             <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="btn btn-primary">
               Agendar avaliação <Icon.Arrow />
             </a>
-            <button className="nav-toggle" onClick={() => setOpen(true)} aria-label="Abrir menu">
+            <button
+              ref={toggleRef}
+              className="nav-toggle"
+              onClick={() => setOpen(true)}
+              aria-label="Abrir menu"
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+            >
               <Icon.Menu />
             </button>
           </div>
         </div>
       </header>
 
-      <div className={`mobile-menu ${open ? "open" : ""}`} aria-hidden={!open}>
+      <div
+        id="mobile-menu"
+        className={`mobile-menu ${open ? "open" : ""}`}
+        aria-hidden={!open}
+        {...(!open ? { inert: "" } : {})}
+      >
         <div className="mobile-menu-top">
           <span className="brand">
             <span className="brand-mark">AR</span>
@@ -195,9 +298,12 @@ function Nav({ onToast }) {
               <small>CRO 17951</small>
             </span>
           </span>
-          <button className="nav-toggle" onClick={() => setOpen(false)} aria-label="Fechar menu">
-            <Icon.Close />
-          </button>
+          <div className="mobile-menu-actions">
+            <ThemeToggle theme={theme} toggle={toggleTheme} />
+            <button className="nav-toggle" onClick={() => setOpen(false)} aria-label="Fechar menu">
+              <Icon.Close />
+            </button>
+          </div>
         </div>
         <div className="mobile-links">
           {links.map((l) => (
@@ -267,4 +373,7 @@ function Hero() {
   );
 }
 
-Object.assign(window, { Icon, Nav, Hero, useReveal, WHATSAPP_URL, INSTAGRAM_URL });
+Object.assign(window, {
+  Icon, Nav, Hero, ThemeToggle, useReveal, useTheme,
+  WHATSAPP_URL, INSTAGRAM_URL,
+});

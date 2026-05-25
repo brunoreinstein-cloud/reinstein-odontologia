@@ -1,5 +1,4 @@
 /* global React, Icon, WHATSAPP_URL, INSTAGRAM_URL */
-const { useState: useStateS } = React;
 
 /* ============================================================
    PAIN / DESIRE
@@ -153,40 +152,62 @@ function AuthoritySection() {
 }
 
 /* ============================================================
-   PORTFOLIO
+   INSTAGRAM FEED
    ============================================================ */
-function PortfolioSection() {
-  const tiles = [
-    "antes · depois (TCLE)",
-    "detalhe lente cerâmica",
-    "consultório / bastidor",
-    "sorriso natural · pós-tratamento",
-  ];
+const IG_POSTS = [
+  { caption: "Reabilitação oral · planejamento e execução", href: INSTAGRAM_URL },
+  { caption: "Lentes cerâmicas · resultado natural", href: INSTAGRAM_URL },
+  { caption: "Bastidores do consultório", href: INSTAGRAM_URL },
+  { caption: "Implantes dentários · caso documentado", href: INSTAGRAM_URL },
+  { caption: "Antes e depois com autorização (TCLE)", href: INSTAGRAM_URL },
+  { caption: "Conteúdo educativo · saúde bucal", href: INSTAGRAM_URL },
+];
+
+function IGFeedSection() {
   return (
-    <section className="section" id="portfolio">
+    <section className="section ig-section" id="portfolio">
       <div className="container">
         <div className="section-header reveal">
-          <span className="eyebrow">Portfólio · Instagram</span>
-          <h2>Veja alguns trabalhos e acompanhe os bastidores profissionais.</h2>
+          <span className="eyebrow">Instagram</span>
+          <h2>Acompanhe casos clínicos e bastidores do consultório.</h2>
           <p className="lead" style={{ marginTop: 8 }}>
-            Conteúdos, orientações e casos clínicos publicados conforme a Resolução
-            CFO 196/2019 — sempre com autorização formal do paciente.
+            Conteúdos publicados conforme a Resolução CFO 196/2019 — sempre com
+            autorização formal do paciente.
           </p>
         </div>
-        <div className="portfolio-strip reveal reveal-delay-2">
-          {tiles.map((t) => (
-            <div key={t} className="portfolio-tile" aria-label={t}>
-              <span>{t}</span>
-            </div>
+
+        <div className="ig-meta reveal reveal-delay-1">
+          <div className="ig-avatar" aria-hidden="true">AR</div>
+          <div className="ig-handle">
+            <strong>@dr.andersonreinstein</strong>
+            <span>Dr. Anderson Reinstein · Odontologia · CRO 17951</span>
+          </div>
+          <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="btn btn-primary">
+            <Icon.Instagram /> Seguir
+          </a>
+        </div>
+
+        <div className="ig-grid reveal reveal-delay-2" role="list">
+          {IG_POSTS.map((p, i) => (
+            <a
+              key={i}
+              href={p.href}
+              target="_blank"
+              rel="noopener"
+              className="ig-post"
+              role="listitem"
+              aria-label={`Post no Instagram: ${p.caption}`}
+            >
+              <div className="ig-post-img" aria-hidden="true" />
+              <span className="ig-post-icon" aria-hidden="true"><Icon.Instagram /></span>
+              <div className="ig-post-overlay">
+                <span className="ig-post-caption">{p.caption}</span>
+              </div>
+            </a>
           ))}
         </div>
-        <div className="reveal reveal-delay-3" style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
-          <a href={INSTAGRAM_URL} target="_blank" rel="noopener" className="btn btn-primary">
-            <Icon.Instagram /> Acessar Instagram
-          </a>
-          <span style={{ fontSize: 14, color: "var(--ink-mute)" }}>@dr.andersonreinstein</span>
-        </div>
-        <p className="portfolio-disclaimer reveal reveal-delay-3" style={{ marginTop: 32 }}>
+
+        <p className="ig-disclaimer reveal reveal-delay-3">
           Imagens publicadas seguem as normas éticas vigentes. Resultados variam de
           acordo com a condição clínica de cada paciente — nenhum resultado é prometido
           ou garantido fora do plano de tratamento individual.
@@ -303,5 +324,5 @@ function MidCTA() {
 
 Object.assign(window, {
   PainSection, TreatmentsSection, AuthoritySection,
-  PortfolioSection, TrustSection, ProcessSection, MidCTA,
+  IGFeedSection, TrustSection, ProcessSection, MidCTA,
 });

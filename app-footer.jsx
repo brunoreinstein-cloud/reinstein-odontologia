@@ -1,5 +1,5 @@
 /* global React, Icon, WHATSAPP_URL, INSTAGRAM_URL */
-const { useState: useStateB, useEffect: useEffectB, useRef: useRefB } = React;
+const { useState: useStateB } = React;
 
 /* ============================================================
    LOCATION
