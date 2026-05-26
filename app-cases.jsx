@@ -151,7 +151,7 @@ const CASES = [
     combined:    "/public/caso-01.jpg",
     layout:      "h",                         /* lado a lado */
     aspectRatio: "4/5",
-    treatment:   "Lentes cerâmicas",
+    treatment:   "Lentes de cerâmica e resina",
     caption:     "Harmonização de forma, proporção e cor",
   },
   {

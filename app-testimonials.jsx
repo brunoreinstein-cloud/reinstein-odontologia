@@ -14,7 +14,7 @@ const TESTIMONIALS = [
     src:       "/public/depo-01.mp4",
     poster:    "/public/depo-01-poster.jpg",
     name:      "Paciente",           /* ← nome após autorização */
-    treatment: "Lentes cerâmicas",
+    treatment: "Lentes de cerâmica e resina",
     duration:  "38s",
   },
   {

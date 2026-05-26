@@ -67,11 +67,11 @@ draw.rectangle([75, 388, 175, 390], fill=GOLD)
 
 # Tagline (italic serif)
 tag_font = ImageFont.truetype("C:/Windows/Fonts/georgiai.ttf", 28)
-draw.text((75, 410), "Lentes cerâmicas · Reabilitação oral", fill=GOLD, font=tag_font)
+draw.text((75, 410), "Lentes (cerâmica e resina) · Reabilitação", fill=GOLD, font=tag_font)
 
 # Location
 loc_font = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 18)
-draw.text((75, 460), "Cachoeirinha · Porto Alegre / RS", fill=WHITE, font=loc_font)
+draw.text((75, 460), "Porto Alegre · Cachoeirinha / RS", fill=WHITE, font=loc_font)
 
 # Credentials bottom-left
 cred_font = ImageFont.truetype("C:/Windows/Fonts/arial.ttf", 14)

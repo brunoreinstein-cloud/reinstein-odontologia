@@ -54,9 +54,9 @@ function PainSection() {
 const TREATMENTS = [
   {
     image: "/public/lentes-ceramicas-01.jpg",
-    imageAlt: "Lente cerâmica em close — detalhe da translucidez e textura",
+    imageAlt: "Lente em close — detalhe da translucidez e textura",
     num: "01 / Estética de alta precisão",
-    title: "Lentes cerâmicas",
+    title: "Lentes de cerâmica e resina",
     body: "Tratamento estético para harmonizar forma, proporção, cor e brilho dos dentes — sempre planejado a partir das características faciais e da saúde bucal do paciente.",
     icon: <Icon.Sparkle />,
     featured: true,
@@ -95,7 +95,7 @@ function TreatmentsSection() {
           <span className="eyebrow">Tratamentos</span>
           <h2>Como podemos cuidar do seu sorriso.</h2>
           <p className="lead" style={{ marginTop: 8 }}>
-            Atuação em prótese, implantes, lentes cerâmicas, estética e reabilitação oral —
+            Atuação em prótese, implantes, lentes de cerâmica e resina, estética e reabilitação oral —
             sempre orientada por planejamento clínico individual.
           </p>
         </div>
@@ -127,11 +127,11 @@ function TreatmentsSection() {
    ============================================================ */
 const DIFFERENTIALS = [
   "Mais de 15 anos de prática clínica",
-  "Foco em odontologia estética, lentes cerâmicas e reabilitação",
+  "Foco em odontologia estética, lentes (cerâmica e resina) e reabilitação",
   "Planejamento estético e funcional integrado",
   "Atendimento personalizado, paciente por paciente",
   "Olhar técnico aliado à gestão em saúde",
-  "Consultórios em Cachoeirinha e Porto Alegre",
+  "Consultórios em Porto Alegre e Cachoeirinha",
 ];
 
 function AuthoritySection() {
@@ -159,7 +159,7 @@ function AuthoritySection() {
           </h2>
           <p style={{ marginTop: 24, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.7 }}>
             Há mais de 15 anos, o Dr. Anderson Rocha Reinstein atua em odontologia
-            estética, lentes cerâmicas e reabilitação oral. Cirurgião-dentista, CRO 17951,
+            estética, lentes (cerâmica e resina) e reabilitação oral. Cirurgião-dentista, CRO 17951,
             é especialista em Prótese Dentária e Implantes, com MBA em Gestão em Saúde.
           </p>
           <p style={{ marginTop: 16, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.7 }}>
@@ -182,7 +182,7 @@ function AuthoritySection() {
    INSTAGRAM FEED
    ============================================================ */
 const IG_POSTS = [
-  { src: "/public/lentes-ceramicas-01.jpg",         caption: "Lentes cerâmicas · resultado natural",   href: INSTAGRAM_URL },
+  { src: "/public/lentes-ceramicas-01.jpg",         caption: "Lentes de cerâmica e resina · resultado natural", href: INSTAGRAM_URL },
   { src: "/public/bastidores-tratamento-01.jpg",    caption: "Detalhe do trabalho clínico",            href: INSTAGRAM_URL },
   { src: "/public/consultorio-cadeira-01.jpg",      caption: "Consultório em Cachoeirinha",            href: INSTAGRAM_URL },
   { src: "/public/consultorio-planejamento-01.jpg", caption: "Planejamento digital do sorriso",        href: INSTAGRAM_URL },

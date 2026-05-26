@@ -5,16 +5,6 @@ const { useState: useStateB } = React;
    LOCATION
    ============================================================ */
 const LOCATIONS = {
-  cachoeirinha: {
-    label: "Cachoeirinha",
-    title: "Cachoeirinha · RS",
-    address: "Av. José Brambila, 20 — 2º andar",
-    neighborhood: "Vila Vista Alegre · Cachoeirinha / RS",
-    phone: "(51) 3469-3982",
-    hours: "Seg a sex · 09h às 18h",
-    mapLabel: "AV. JOSÉ BRAMBILA, 20",
-    pinPos: { top: "52%", left: "48%" },
-  },
   portoalegre: {
     label: "Porto Alegre",
     title: "Porto Alegre · RS",
@@ -25,10 +15,20 @@ const LOCATIONS = {
     mapLabel: "AV. CARLOS GOMES, 700",
     pinPos: { top: "48%", left: "55%" },
   },
+  cachoeirinha: {
+    label: "Cachoeirinha",
+    title: "Cachoeirinha · RS",
+    address: "Av. José Brambila, 20 — 2º andar",
+    neighborhood: "Vila Vista Alegre · Cachoeirinha / RS",
+    phone: "(51) 3469-3982",
+    hours: "Seg a sex · 09h às 18h",
+    mapLabel: "AV. JOSÉ BRAMBILA, 20",
+    pinPos: { top: "52%", left: "48%" },
+  },
 };
 
 function LocationSection() {
-  const [active, setActive] = useStateB("cachoeirinha");
+  const [active, setActive] = useStateB("portoalegre");
   const loc = LOCATIONS[active];
 
   return (
@@ -36,7 +36,7 @@ function LocationSection() {
       <div className="container">
         <div className="section-header reveal">
           <span className="eyebrow">Onde estamos</span>
-          <h2>Atendimento em Cachoeirinha e Porto Alegre.</h2>
+          <h2>Atendimento em Porto Alegre e Cachoeirinha.</h2>
         </div>
 
         <div className="loc-tabs reveal" role="tablist">
@@ -112,7 +112,7 @@ function LocationSection() {
    ============================================================ */
 const FAQS = [
   {
-    q: "Lentes cerâmicas são indicadas para todos os pacientes?",
+    q: "Lentes de cerâmica e resina são indicadas para todos os pacientes?",
     a: "Não. A indicação depende da análise dos dentes, mordida, saúde gengival e expectativa estética. A avaliação clínica define se as lentes são a melhor opção para o seu caso — ou se outro tratamento estético se encaixa melhor.",
   },
   {
@@ -121,7 +121,7 @@ const FAQS = [
   },
   {
     q: "Quanto tempo dura um tratamento estético?",
-    a: "O tempo varia conforme o tipo de procedimento e a complexidade do caso. Tratamentos como lentes cerâmicas costumam envolver poucas sessões, enquanto reabilitações mais amplas têm etapas. Tudo é apresentado no plano de tratamento.",
+    a: "O tempo varia conforme o tipo de procedimento e a complexidade do caso. Tratamentos como lentes (cerâmica e resina) costumam envolver poucas sessões, enquanto reabilitações mais amplas têm etapas. Tudo é apresentado no plano de tratamento.",
   },
   {
     q: "Implante dentário dói?",
@@ -214,8 +214,8 @@ function Footer() {
               </span>
             </span>
             <p>
-              Odontologia estética, lentes cerâmicas e reabilitação oral com
-              planejamento individual. Atendimento em Cachoeirinha e Porto Alegre.
+              Odontologia estética, lentes (cerâmica e resina) e reabilitação oral
+              com planejamento individual. Atendimento em Porto Alegre e Cachoeirinha.
             </p>
           </div>
 
@@ -230,15 +230,6 @@ function Footer() {
           </div>
 
           <div>
-            <h4>Cachoeirinha</h4>
-            <ul>
-              <li>Av. José Brambila, 20</li>
-              <li>2º andar · Vila Vista Alegre</li>
-              <li>(51) 3469-3982</li>
-            </ul>
-          </div>
-
-          <div>
             <h4>Porto Alegre</h4>
             <ul>
               <li>Av. Carlos Gomes, 700</li>
@@ -249,6 +240,15 @@ function Footer() {
                   @dr.andersonreinstein
                 </a>
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4>Cachoeirinha</h4>
+            <ul>
+              <li>Av. José Brambila, 20</li>
+              <li>2º andar · Vila Vista Alegre</li>
+              <li>(51) 3469-3982</li>
             </ul>
           </div>
         </div>

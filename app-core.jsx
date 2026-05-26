@@ -328,13 +328,13 @@ function Hero() {
         <div className="reveal in">
           <div className="hero-badges">
             <span className="badge"><span className="badge-dot" /> Mais de 15 anos de prática clínica</span>
-            <span className="badge"><span className="badge-dot" /> Cachoeirinha · Porto Alegre</span>
+            <span className="badge"><span className="badge-dot" /> Porto Alegre · Cachoeirinha</span>
           </div>
           <h1>
             Sorrisos planejados com técnica, arte e <em>naturalidade</em>.
           </h1>
           <p className="hero-sub">
-            Odontologia estética, lentes cerâmicas e reabilitação oral — com planejamento
+            Odontologia estética, lentes de cerâmica e resina e reabilitação oral — com planejamento
             individual para cada caso. Cada plano nasce do encontro entre a história do
             paciente, suas expectativas e a técnica certa para o sorriso.
           </p>
@@ -365,11 +365,6 @@ function Hero() {
             loading="eager"
             fetchPriority="high"
           />
-          <div className="hero-stamp" aria-hidden="true">
-            <strong>15</strong>
-            <span className="hero-stamp-label">anos</span>
-            <span className="hero-stamp-sub">de prática clínica</span>
-          </div>
         </div>
       </div>
     </section>

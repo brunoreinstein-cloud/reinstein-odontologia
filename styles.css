@@ -545,55 +545,10 @@ p { margin: 0; text-wrap: pretty; }
   object-fit: cover;
   display: block;
 }
-.hero-stamp {
-  position: absolute;
-  bottom: -32px;
-  left: -32px;
-  width: 200px; height: 200px;
-  border-radius: 50%;
-  background: var(--gold);
-  color: var(--surface-deep);
-  display: grid; place-items: center;
-  text-align: center;
-  font-family: var(--font-display);
-  line-height: 1;
-  padding: 28px;
-  box-shadow: var(--shadow-md);
-  transform: rotate(-8deg);
-}
-.hero-stamp strong {
-  display: block;
-  font-size: 64px;
-  font-weight: 500;
-  font-style: italic;
-  line-height: 0.9;
-  margin-bottom: 4px;
-}
-.hero-stamp-label {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  margin-bottom: 8px;
-}
-.hero-stamp-sub {
-  display: block;
-  font-family: var(--font-display);
-  font-style: italic;
-  font-size: 13px;
-  line-height: 1.2;
-}
-
 @media (max-width: 900px) {
   .hero { padding: 140px 0 60px; }
   .hero-grid { grid-template-columns: 1fr; gap: 48px; }
   .hero-visual { aspect-ratio: 5/6; }
-  .hero-stamp { width: 140px; height: 140px; padding: 18px; }
-  .hero-stamp strong { font-size: 48px; }
-  .hero-stamp-label { font-size: 11px; letter-spacing: 0.22em; margin-bottom: 6px; }
-  .hero-stamp-sub { font-size: 11px; }
 }
 
 /* ============================================================

@@ -25,10 +25,11 @@ function InterviewSection() {
     <section className="section" id="entrevista">
       <div className="container-narrow">
         <div className="section-header reveal">
-          <span className="eyebrow">Em vídeo</span>
+          <span className="eyebrow">Entrevista na TV com Regina Lima</span>
           <h2>Conheça o Dr. Anderson e o consultório.</h2>
           <p className="lead" style={{ marginTop: 8 }}>
-            Uma conversa sobre planejamento, técnica e cuidado em odontologia estética.
+            Uma conversa sobre planejamento, técnica e cuidado em odontologia estética —
+            entrevista concedida à Regina Lima.
           </p>
         </div>
 
