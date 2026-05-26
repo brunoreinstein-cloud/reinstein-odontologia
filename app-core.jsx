@@ -360,8 +360,8 @@ function Hero() {
             src="/public/dr-anderson-portrait-01.jpg"
             alt="Dr. Anderson Reinstein, cirurgião-dentista, CRO 17951"
             className="hero-portrait"
-            width="1200"
-            height="1200"
+            width="854"
+            height="1280"
             loading="eager"
             fetchPriority="high"
           />
