@@ -1,0 +1,11 @@
+# originals (kept locally, not pushed)
+public/WhatsApp*
+public/entrevista.mp4
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# editors
+.vscode/
+.idea/

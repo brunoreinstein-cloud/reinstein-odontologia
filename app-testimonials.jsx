@@ -12,18 +12,21 @@ const {
 const TESTIMONIALS = [
   {
     src:       "/public/depo-01.mp4",
+    poster:    "/public/depo-01-poster.jpg",
     name:      "Paciente",           /* ← nome após autorização */
     treatment: "Lentes cerâmicas",
     duration:  "38s",
   },
   {
     src:       "/public/depo-02.mp4",
+    poster:    "/public/depo-02-poster.jpg",
     name:      "Paciente",
     treatment: "Reabilitação oral",
     duration:  "20s",
   },
   {
     src:       "/public/depo-03.mp4",
+    poster:    "/public/depo-03-poster.jpg",
     name:      "Paciente",
     treatment: "Odontologia estética",
     duration:  "19s",
@@ -33,17 +36,8 @@ const TESTIMONIALS = [
 /* ============================================================
    CARD INDIVIDUAL
    ============================================================ */
-function TestimonialCard({ src, name, treatment, isActive, onToggle }) {
+function TestimonialCard({ src, poster, name, treatment, isActive, onToggle }) {
   const videoRef = useRefTe(null);
-
-  /* mostra o primeiro frame como thumbnail */
-  useEffectTe(() => {
-    const v = videoRef.current;
-    if (!v) return;
-    const onMeta = () => { if (v.currentTime === 0) v.currentTime = 0.1; };
-    v.addEventListener("loadedmetadata", onMeta);
-    return () => v.removeEventListener("loadedmetadata", onMeta);
-  }, []);
 
   /* play / pause conforme estado do pai */
   useEffectTe(() => {
@@ -53,7 +47,7 @@ function TestimonialCard({ src, name, treatment, isActive, onToggle }) {
       v.play().catch(() => {/* bloqueado pelo browser — ignorar */});
     } else {
       v.pause();
-      v.currentTime = 0.1;   /* volta ao thumbnail */
+      v.currentTime = 0;   /* volta ao início — o poster reaparece */
     }
   }, [isActive]);
 
@@ -69,9 +63,10 @@ function TestimonialCard({ src, name, treatment, isActive, onToggle }) {
       <video
         ref={videoRef}
         src={src}
+        poster={poster}
         loop
         playsInline
-        preload="metadata"
+        preload="none"
         aria-hidden="true"
       />
 
