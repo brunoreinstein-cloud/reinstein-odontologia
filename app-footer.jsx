@@ -182,15 +182,14 @@ function ClosingSection() {
         <span className="eyebrow">Próximo capítulo do seu sorriso</span>
         <h2>Vamos planejar juntos o seu próximo sorriso.</h2>
         <p className="lead" style={{ color: "var(--ink-invert-soft)", maxWidth: "46ch" }}>
-          Estética, função e história — um plano de cuidado feito com técnica, arte
-          e 15 anos de prática clínica.
+          Estética, função e história — um plano de cuidado feito com técnica e arte.
         </p>
         <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="btn btn-whatsapp" style={{ padding: "18px 36px", fontSize: 16 }}>
           <Icon.Whatsapp /> Agendar avaliação agora
         </a>
         <div className="closing-credentials">
           <strong>Dr. Anderson Rocha Reinstein</strong>
-          <span>Cirurgião-dentista · CRO 17951 · 15 anos de prática clínica</span>
+          <span>Cirurgião-dentista · CRO 17951</span>
           <span>Especialista em Prótese Dentária e Implantes · MBA em Gestão em Saúde</span>
         </div>
       </div>
@@ -211,13 +210,12 @@ function Footer() {
               <span className="brand-mark">AR</span>
               <span className="brand-text">
                 Dr. Anderson Reinstein
-                <small>Odontologia Estética · 15 anos · CRO 17951</small>
+                <small>Odontologia Estética · CRO 17951</small>
               </span>
             </span>
             <p>
-              Odontologia estética, lentes cerâmicas e reabilitação oral com planejamento
-              individual e 15 anos de prática clínica. Atendimento em Cachoeirinha e
-              Porto Alegre.
+              Odontologia estética, lentes cerâmicas e reabilitação oral com
+              planejamento individual. Atendimento em Cachoeirinha e Porto Alegre.
             </p>
           </div>
 

@@ -30,8 +30,7 @@ function PainSection() {
           <p className="lead">
             No consultório do Dr. Anderson Reinstein, cada plano estético nasce do
             encontro entre a história do paciente, suas expectativas e a técnica
-            certa para o caso — com 15 anos de prática clínica sustentando cada
-            decisão.
+            certa para o caso — com responsabilidade clínica sustentando cada decisão.
           </p>
         </div>
       </div>
@@ -110,7 +109,7 @@ function TreatmentsSection() {
    AUTHORITY
    ============================================================ */
 const DIFFERENTIALS = [
-  "15 anos de prática clínica",
+  "Mais de 15 anos de prática clínica",
   "Foco em odontologia estética, lentes cerâmicas e reabilitação",
   "Planejamento estético e funcional integrado",
   "Atendimento personalizado, paciente por paciente",
@@ -133,7 +132,7 @@ function AuthoritySection() {
         <div className="reveal reveal-delay-2">
           <span className="eyebrow">Sobre o profissional</span>
           <h2 style={{ marginTop: 18 }}>
-            15 anos transformando sorrisos com técnica e responsabilidade clínica.
+            Mais de 15 anos transformando sorrisos com técnica e responsabilidade clínica.
           </h2>
           <p style={{ marginTop: 24, fontSize: 17, color: "var(--ink-soft)", lineHeight: 1.7 }}>
             Há mais de 15 anos, o Dr. Anderson Rocha Reinstein atua em odontologia

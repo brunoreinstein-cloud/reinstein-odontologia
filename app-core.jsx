@@ -119,7 +119,7 @@ const Icon = {
 /* ============================================================
    Constants
    ============================================================ */
-const WHATSAPP_URL = "https://wa.me/5551998563574?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
+const WHATSAPP_URL = "https://wa.me/555192592797?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
 const INSTAGRAM_URL = "https://www.instagram.com/dr.andersonreinstein/";
 const THEME_KEY = "ar-theme";
 
@@ -257,7 +257,7 @@ function Nav({ theme, toggleTheme }) {
             <span className="brand-mark">AR</span>
             <span className="brand-text">
               Dr. Anderson Reinstein
-              <small>Odontologia Estética · 15 anos</small>
+              <small>Odontologia Estética · CRO 17951</small>
             </span>
           </a>
           <nav className="nav-links" aria-label="Principal">
@@ -327,7 +327,7 @@ function Hero() {
       <div className="container hero-grid">
         <div className="reveal in">
           <div className="hero-badges">
-            <span className="badge"><span className="badge-dot" /> 15 anos de prática clínica</span>
+            <span className="badge"><span className="badge-dot" /> Mais de 15 anos de prática clínica</span>
             <span className="badge"><span className="badge-dot" /> Cachoeirinha · Porto Alegre</span>
           </div>
           <h1>
