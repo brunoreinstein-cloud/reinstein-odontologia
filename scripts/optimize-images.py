@@ -7,7 +7,7 @@ os.chdir("public")
 # (src, dst, max_long_side, quality)
 JOBS = [
     ("anderson 2.png",   "dr-anderson-clinica-01.jpg",       1400, 85),
-    ("anderson.png",     "dr-anderson-portrait-01.jpg",      1200, 85),
+    ("anderson3.png",    "dr-anderson-portrait-01.jpg",      1400, 88),
     ("consultorio.png",  "consultorio-planejamento-01.jpg",  1200, 85),
     ("consultorio2.png", "consultorio-cadeira-01.jpg",       1400, 85),
     ("bastidor.png",     "bastidores-tratamento-01.jpg",     1200, 85),
