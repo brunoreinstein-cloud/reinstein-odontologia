@@ -1112,8 +1112,15 @@ p { margin: 0; text-wrap: pretty; }
   margin-bottom: 4px;
 }
 .loc-detail span { font-size: 16px; color: var(--ink); line-height: 1.5; }
-.loc-cta { margin-top: auto; padding-top: 32px; }
+.loc-cta {
+  margin-top: auto;
+  padding-top: 32px;
+  display: grid;
+  gap: 10px;
+}
 .loc-map {
+  display: block;
+  text-decoration: none;
   border-radius: var(--radius-md);
   overflow: hidden;
   position: relative;
@@ -1123,6 +1130,43 @@ p { margin: 0; text-wrap: pretty; }
     repeating-linear-gradient(90deg, var(--grid-line), var(--grid-line) 1px, transparent 1px, transparent 40px);
   background-blend-mode: normal, multiply, multiply;
   min-height: 420px;
+  transition: box-shadow 0.3s var(--ease), transform 0.3s var(--ease);
+  cursor: pointer;
+}
+.loc-map:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.loc-map:focus-visible {
+  outline: 2px solid var(--gold-deep);
+  outline-offset: 3px;
+}
+.loc-map-hint {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--primary-deep);
+  background: var(--glass-light);
+  padding: 8px 12px;
+  border-radius: var(--radius-pill);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--line-soft);
+  transition: background 0.3s, color 0.3s;
+}
+.loc-map-hint svg { width: 12px; height: 12px; }
+.loc-map:hover .loc-map-hint {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
 }
 .loc-map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .loc-pin {

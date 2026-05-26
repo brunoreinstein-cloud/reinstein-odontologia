@@ -9,21 +9,25 @@ const LOCATIONS = {
     label: "Porto Alegre",
     title: "Porto Alegre · RS",
     address: "Av. Carlos Gomes, 700 — sala 912",
-    neighborhood: "Porto Alegre / RS",
+    neighborhood: "Porto Alegre / RS · CEP 90480-000",
     phone: "(51) 99856-3574",
     hours: "Sob agendamento",
     mapLabel: "AV. CARLOS GOMES, 700",
     pinPos: { top: "48%", left: "55%" },
+    mapsUrl:       "https://www.google.com/maps/search/?api=1&query=Av.+Carlos+Gomes%2C+700+-+Porto+Alegre%2C+RS%2C+90480-000",
+    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Av.+Carlos+Gomes%2C+700+-+Porto+Alegre%2C+RS%2C+90480-000",
   },
   cachoeirinha: {
     label: "Cachoeirinha",
     title: "Cachoeirinha · RS",
     address: "Av. José Brambila, 20 — 2º andar",
-    neighborhood: "Vila Vista Alegre · Cachoeirinha / RS",
+    neighborhood: "Vila Vista Alegre · Cachoeirinha / RS · CEP 94945-000",
     phone: "(51) 3469-3982",
     hours: "Seg a sex · 09h às 18h",
     mapLabel: "AV. JOSÉ BRAMBILA, 20",
     pinPos: { top: "52%", left: "48%" },
+    mapsUrl:       "https://www.google.com/maps/search/?api=1&query=Av.+Jos%C3%A9+Brambila%2C+20+-+Cachoeirinha%2C+RS%2C+94945-000",
+    directionsUrl: "https://www.google.com/maps/dir/?api=1&destination=Av.+Jos%C3%A9+Brambila%2C+20+-+Cachoeirinha%2C+RS%2C+94945-000",
   },
 };
 
@@ -82,13 +86,23 @@ function LocationSection() {
             </div>
 
             <div className="loc-cta">
+              <a href={loc.directionsUrl} target="_blank" rel="noopener" className="btn btn-primary" style={{ width: "100%" }}>
+                <Icon.Pin /> Como chegar
+              </a>
               <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="btn btn-whatsapp" style={{ width: "100%" }}>
                 <Icon.Whatsapp /> Abrir conversa no WhatsApp
               </a>
             </div>
           </div>
 
-          <div className="loc-map reveal reveal-delay-2" key={active + "-map"} aria-label={`Mapa ilustrativo · ${loc.title}`}>
+          <a
+            href={loc.mapsUrl}
+            target="_blank"
+            rel="noopener"
+            className="loc-map reveal reveal-delay-2"
+            key={active + "-map"}
+            aria-label={`Abrir ${loc.title} no Google Maps`}
+          >
             <span className="loc-map-label">{loc.mapLabel}</span>
             <svg viewBox="0 0 400 400" preserveAspectRatio="none" aria-hidden="true">
               <path d="M0 120 Q 100 90 200 130 T 400 110" stroke="oklch(60% 0.04 215)" strokeWidth="2" fill="none" opacity="0.4" />
@@ -100,7 +114,10 @@ function LocationSection() {
             <div className="loc-pin" style={{ top: loc.pinPos.top, left: loc.pinPos.left }}>
               <div className="loc-pin-dot" />
             </div>
-          </div>
+            <span className="loc-map-hint">
+              <Icon.Pin /> Toque para abrir no Google Maps
+            </span>
+          </a>
         </div>
       </div>
     </section>
