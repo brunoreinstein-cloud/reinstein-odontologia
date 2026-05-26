@@ -763,47 +763,45 @@ p { margin: 0; text-wrap: pretty; }
   aspect-ratio: 4/5;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background:
-    repeating-linear-gradient(45deg,
-      var(--auth-stripe-a),
-      var(--auth-stripe-a) 14px,
-      var(--auth-stripe-b) 14px,
-      var(--auth-stripe-b) 28px);
+  background: var(--primary-tint);
   box-shadow: var(--shadow-lg);
 }
-.authority-visual span {
-  position: absolute;
-  bottom: 24px; left: 24px;
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--ink-invert);
-  background: var(--glass-dark);
-  padding: 6px 10px;
-  border-radius: var(--radius-xs);
-  backdrop-filter: blur(4px);
-}
-.cro-stamp {
-  position: absolute;
-  top: 24px; right: 24px;
-  padding: 14px 18px;
-  background: var(--gold);
-  color: var(--surface-deep);
-  border-radius: var(--radius-sm);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  line-height: 1.3;
-}
-.cro-stamp strong {
+.authority-portrait {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
+}
+.authority-cro {
+  position: absolute;
+  bottom: 22px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: oklch(0% 0 0 / 0.5);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid oklch(100% 0 0 / 0.12);
+  border-radius: var(--radius-pill);
+  color: #fff;
+}
+.authority-cro-label {
+  font-family: var(--font-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.authority-cro-num {
   font-family: var(--font-display);
   font-style: italic;
+  font-size: 18px;
   font-weight: 500;
-  font-size: 22px;
-  letter-spacing: 0;
-  text-transform: none;
+  color: #fff;
+  line-height: 1;
 }
 .differentials {
   list-style: none;
@@ -895,20 +893,18 @@ p { margin: 0; text-wrap: pretty; }
 }
 .ig-post:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 .ig-post-img {
-  position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(var(--angle, 30deg),
-      var(--c1, var(--tile-a)),
-      var(--c1, var(--tile-a)) 12px,
-      var(--c2, var(--tile-b)) 12px,
-      var(--c2, var(--tile-b)) 24px);
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s var(--ease);
 }
-.ig-post:nth-child(1) .ig-post-img { --c1: var(--primary-deep); --c2: var(--primary); --angle: 30deg; }
-.ig-post:nth-child(2) .ig-post-img { --c1: var(--gold); --c2: var(--gold-deep); --angle: 60deg; }
-.ig-post:nth-child(3) .ig-post-img { --c1: var(--tile-a); --c2: var(--tile-b); --angle: 100deg; }
-.ig-post:nth-child(4) .ig-post-img { --c1: var(--primary); --c2: var(--primary-soft); --angle: 120deg; }
-.ig-post:nth-child(5) .ig-post-img { --c1: var(--gold-deep); --c2: var(--primary-deep); --angle: 150deg; }
-.ig-post:nth-child(6) .ig-post-img { --c1: var(--primary-tint); --c2: var(--bg-elev); --angle: 180deg; }
+.ig-post:hover .ig-post-img,
+.ig-post:focus-visible .ig-post-img {
+  transform: scale(1.05);
+}
 .ig-post-overlay {
   position: absolute; inset: 0;
   background: linear-gradient(180deg, transparent 40%, oklch(0% 0 0 / 0.55) 100%);

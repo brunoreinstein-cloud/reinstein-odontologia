@@ -121,13 +121,19 @@ function AuthoritySection() {
   return (
     <section className="section section--cream" id="sobre">
       <div className="container authority-grid">
-        <div className="authority-visual reveal" aria-hidden="true">
-          <div className="cro-stamp">
-            CRO
-            <strong>17951</strong>
-            RS
+        <div className="authority-visual reveal">
+          <img
+            src="/public/dr-anderson-clinica-01.jpg"
+            alt="Dr. Anderson Reinstein no consultório, em atendimento clínico com planejamento digital"
+            className="authority-portrait"
+            loading="lazy"
+            width="1120"
+            height="1400"
+          />
+          <div className="authority-cro" aria-label="Registro profissional CRO/RS 17951">
+            <span className="authority-cro-label">CRO/RS</span>
+            <strong className="authority-cro-num">17951</strong>
           </div>
-          <span>retrato profissional · consultório</span>
         </div>
         <div className="reveal reveal-delay-2">
           <span className="eyebrow">Sobre o profissional</span>
@@ -159,12 +165,12 @@ function AuthoritySection() {
    INSTAGRAM FEED
    ============================================================ */
 const IG_POSTS = [
-  { caption: "Reabilitação oral · planejamento e execução", href: INSTAGRAM_URL },
-  { caption: "Lentes cerâmicas · resultado natural", href: INSTAGRAM_URL },
-  { caption: "Bastidores do consultório", href: INSTAGRAM_URL },
-  { caption: "Implantes dentários · caso documentado", href: INSTAGRAM_URL },
-  { caption: "Antes e depois com autorização (TCLE)", href: INSTAGRAM_URL },
-  { caption: "Conteúdo educativo · saúde bucal", href: INSTAGRAM_URL },
+  { src: "/public/lentes-ceramicas-01.jpg",         caption: "Lentes cerâmicas · resultado natural",   href: INSTAGRAM_URL },
+  { src: "/public/bastidores-tratamento-01.jpg",    caption: "Detalhe do trabalho clínico",            href: INSTAGRAM_URL },
+  { src: "/public/consultorio-cadeira-01.jpg",      caption: "Consultório em Cachoeirinha",            href: INSTAGRAM_URL },
+  { src: "/public/consultorio-planejamento-01.jpg", caption: "Planejamento digital do sorriso",        href: INSTAGRAM_URL },
+  { src: "/public/dr-anderson-portrait-01.jpg",     caption: "Dr. Anderson Reinstein",                 href: INSTAGRAM_URL },
+  { src: "/public/dr-anderson-clinica-01.jpg",      caption: "Atendimento personalizado",              href: INSTAGRAM_URL },
 ];
 
 function IGFeedSection() {
@@ -202,7 +208,14 @@ function IGFeedSection() {
               role="listitem"
               aria-label={`Post no Instagram: ${p.caption}`}
             >
-              <div className="ig-post-img" aria-hidden="true" />
+              <img
+                src={p.src}
+                alt={p.caption}
+                className="ig-post-img"
+                loading="lazy"
+                width="600"
+                height="600"
+              />
               <span className="ig-post-icon" aria-hidden="true"><Icon.Instagram /></span>
               <div className="ig-post-overlay">
                 <span className="ig-post-caption">{p.caption}</span>

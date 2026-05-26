@@ -1,6 +1,12 @@
 # originals (kept locally, not pushed)
 public/WhatsApp*
 public/entrevista.mp4
+public/anderson.png
+public/anderson*.png
+public/consultorio.png
+public/consultorio*.png
+public/bastidor.png
+public/lentes.png
 
 # OS junk
 .DS_Store
