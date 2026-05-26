@@ -1,7 +1,8 @@
 /* global React, ReactDOM,
    Nav, Hero, useReveal, useTheme,
    PainSection, TreatmentsSection, AuthoritySection,
-   CasesSection, IGFeedSection, TrustSection, ProcessSection, MidCTA,
+   CasesSection, TestimonialsSection, IGFeedSection,
+   TrustSection, ProcessSection, MidCTA,
    LocationSection, FAQSection, ClosingSection, Footer, FloatingWA
 */
 
@@ -17,6 +18,7 @@ function App() {
         <TreatmentsSection />
         <AuthoritySection />
         <CasesSection />
+        <TestimonialsSection />
         <IGFeedSection />
         <TrustSection />
         <ProcessSection />
