@@ -121,71 +121,8 @@ const Icon = {
    ============================================================ */
 const WHATSAPP_URL = "https://wa.me/555192592797?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o.";
 const INSTAGRAM_URL = "https://www.instagram.com/dr.andersonreinstein/";
-const THEME_KEY = "ar-theme";
 
-/* ============================================================
-   Theme
-   ============================================================ */
-function getInitialTheme() {
-  if (typeof window === "undefined") return "light";
-  // Honor a pre-paint script that may have already set data-theme
-  const fromDOM = document.documentElement.getAttribute("data-theme");
-  if (fromDOM === "light" || fromDOM === "dark") return fromDOM;
-  try {
-    const stored = localStorage.getItem(THEME_KEY);
-    if (stored === "light" || stored === "dark") return stored;
-  } catch (_) { /* storage may be blocked */ }
-  if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    return "dark";
-  }
-  return "light";
-}
-
-function useTheme() {
-  const [theme, setTheme] = useState(getInitialTheme);
-
-  useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    try { localStorage.setItem(THEME_KEY, theme); } catch (_) {}
-  }, [theme]);
-
-  // Sync with system changes when user has no explicit preference
-  useEffect(() => {
-    if (!window.matchMedia) return;
-    const mq = window.matchMedia("(prefers-color-scheme: dark)");
-    const onChange = (e) => {
-      try {
-        const stored = localStorage.getItem(THEME_KEY);
-        if (stored) return; // user explicitly chose a theme
-      } catch (_) {}
-      setTheme(e.matches ? "dark" : "light");
-    };
-    if (mq.addEventListener) mq.addEventListener("change", onChange);
-    else mq.addListener(onChange);
-    return () => {
-      if (mq.removeEventListener) mq.removeEventListener("change", onChange);
-      else mq.removeListener(onChange);
-    };
-  }, []);
-
-  const toggle = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
-  return { theme, toggle };
-}
-
-function ThemeToggle({ theme, toggle, className = "" }) {
-  const label = theme === "dark" ? "Ativar tema claro" : "Ativar tema escuro";
-  return (
-    <button
-      type="button"
-      className={`theme-toggle ${className}`}
-      onClick={toggle}
-      aria-label={label}
-      title={label}
-    >
-      {theme === "dark" ? <Icon.Sun /> : <Icon.Moon />}
-    </button>
-  );
-}
+/* Theme is locked to dark — set statically via <html data-theme="dark"> */
 
 /* ============================================================
    Reveal-on-scroll hook
@@ -216,7 +153,7 @@ function useReveal() {
 /* ============================================================
    NAV
    ============================================================ */
-function Nav({ theme, toggleTheme }) {
+function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleRef = useRef(null);
@@ -266,7 +203,6 @@ function Nav({ theme, toggleTheme }) {
             ))}
           </nav>
           <div className="nav-cta">
-            <ThemeToggle theme={theme} toggle={toggleTheme} />
             <a href={WHATSAPP_URL} target="_blank" rel="noopener" className="btn btn-primary">
               Agendar avaliação <Icon.Arrow />
             </a>
@@ -299,7 +235,6 @@ function Nav({ theme, toggleTheme }) {
             </span>
           </span>
           <div className="mobile-menu-actions">
-            <ThemeToggle theme={theme} toggle={toggleTheme} />
             <button className="nav-toggle" onClick={() => setOpen(false)} aria-label="Fechar menu">
               <Icon.Close />
             </button>
@@ -372,6 +307,6 @@ function Hero() {
 }
 
 Object.assign(window, {
-  Icon, Nav, Hero, ThemeToggle, useReveal, useTheme,
+  Icon, Nav, Hero, useReveal,
   WHATSAPP_URL, INSTAGRAM_URL,
 });

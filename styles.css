@@ -139,8 +139,7 @@ svg { display: inline-block; }
 .process-arrow svg,
 .trust-check-icon svg,
 .mobile-links a svg,
-.brand svg,
-.theme-toggle svg { width: 18px; height: 18px; flex-shrink: 0; }
+.brand svg { width: 18px; height: 18px; flex-shrink: 0; }
 
 /* Visible focus across interactive elements */
 :focus-visible {
@@ -387,8 +386,8 @@ p { margin: 0; text-wrap: pretty; }
   align-items: center;
   gap: 12px;
 }
-.nav-toggle, .theme-toggle {
-  display: inline-flex;
+.nav-toggle {
+  display: none;
   width: 44px; height: 44px;
   border-radius: 50%;
   border: 1px solid var(--line);
@@ -397,13 +396,12 @@ p { margin: 0; text-wrap: pretty; }
   background: transparent;
   transition: background .2s, color .2s, border-color .2s, transform .2s;
 }
-.theme-toggle:hover, .nav-toggle:hover {
+.nav-toggle:hover {
   background: var(--bg-warm);
   border-color: var(--primary-soft);
   color: var(--primary);
 }
-.theme-toggle:active { transform: scale(0.95); }
-.nav-toggle { display: none; }
+.nav-toggle:active { transform: scale(0.95); }
 
 @media (max-width: 900px) {
   .nav-links, .nav-cta .btn { display: none; }

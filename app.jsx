@@ -1,5 +1,5 @@
 /* global React, ReactDOM,
-   Nav, Hero, useReveal, useTheme,
+   Nav, Hero, useReveal,
    PainSection, TreatmentsSection, AuthoritySection,
    ConsultorioSection, InterviewSection, CasesSection, TestimonialsSection, IGFeedSection,
    TrustSection, ProcessSection, MidCTA,
@@ -51,11 +51,10 @@ class ErrorBoundary extends React.Component {
 
 function App() {
   useReveal();
-  const { theme, toggle } = useTheme();
   return (
     <React.Fragment>
       <a href="#main" className="skip-link">Pular para o conteúdo</a>
-      <Nav theme={theme} toggleTheme={toggle} />
+      <Nav />
       <main id="main">
         <Hero />
         <PainSection />
