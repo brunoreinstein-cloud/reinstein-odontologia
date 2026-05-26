@@ -1,0 +1,13 @@
+{
+  "name": "reinstein-odontologia",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Site institucional Dr. Anderson Reinstein — Odontologia Estética",
+  "scripts": {
+    "build": "node scripts/build-jsx.mjs",
+    "dev": "node scripts/build-jsx.mjs && python -m http.server 8000"
+  },
+  "devDependencies": {
+    "esbuild": "^0.28.0"
+  }
+}
