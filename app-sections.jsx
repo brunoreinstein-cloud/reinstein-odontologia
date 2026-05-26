@@ -26,13 +26,23 @@ function PainSection() {
             ))}
           </div>
         </div>
-        <div className="pain-quote reveal reveal-delay-2">
-          <p className="lead">
-            No consultório do Dr. Anderson Reinstein, cada plano estético nasce do
-            encontro entre a história do paciente, suas expectativas e a técnica
-            certa para o caso — com responsabilidade clínica sustentando cada decisão.
-          </p>
-        </div>
+        <figure className="pain-visual reveal reveal-delay-2">
+          <img
+            src="/public/bastidores-tratamento-01.jpg"
+            alt="Mãos do Dr. Anderson em luvas, ajustando uma lente cerâmica com instrumento clínico"
+            loading="lazy"
+            width="960"
+            height="1200"
+          />
+          <figcaption>
+            <span className="pain-visual-eyebrow">Detalhe clínico</span>
+            <p>
+              No consultório do Dr. Anderson Reinstein, cada plano estético nasce do
+              encontro entre a história do paciente, suas expectativas e a técnica
+              certa para o caso.
+            </p>
+          </figcaption>
+        </figure>
       </div>
     </section>
   );
@@ -43,6 +53,8 @@ function PainSection() {
    ============================================================ */
 const TREATMENTS = [
   {
+    image: "/public/lentes-ceramicas-01.jpg",
+    imageAlt: "Lente cerâmica em close — detalhe da translucidez e textura",
     num: "01 / Estética de alta precisão",
     title: "Lentes cerâmicas",
     body: "Tratamento estético para harmonizar forma, proporção, cor e brilho dos dentes — sempre planejado a partir das características faciais e da saúde bucal do paciente.",
@@ -91,8 +103,13 @@ function TreatmentsSection() {
           {TREATMENTS.map((t, i) => (
             <article
               key={t.title}
-              className={`t-card ${t.featured ? "featured" : ""} reveal reveal-delay-${(i % 4) + 1}`}
+              className={`t-card ${t.featured ? "featured" : ""} ${t.image ? "has-image" : ""} reveal reveal-delay-${(i % 4) + 1}`}
             >
+              {t.image && (
+                <div className="t-card-image">
+                  <img src={t.image} alt={t.imageAlt || ""} loading="lazy" width="960" height="600" />
+                </div>
+              )}
               <div className="t-card-glyph">{t.icon}</div>
               <div className="t-card-num">{t.num}</div>
               <h3>{t.title}</h3>
@@ -169,8 +186,6 @@ const IG_POSTS = [
   { src: "/public/bastidores-tratamento-01.jpg",    caption: "Detalhe do trabalho clínico",            href: INSTAGRAM_URL },
   { src: "/public/consultorio-cadeira-01.jpg",      caption: "Consultório em Cachoeirinha",            href: INSTAGRAM_URL },
   { src: "/public/consultorio-planejamento-01.jpg", caption: "Planejamento digital do sorriso",        href: INSTAGRAM_URL },
-  { src: "/public/dr-anderson-portrait-01.jpg",     caption: "Dr. Anderson Reinstein",                 href: INSTAGRAM_URL },
-  { src: "/public/dr-anderson-clinica-01.jpg",      caption: "Atendimento personalizado",              href: INSTAGRAM_URL },
 ];
 
 function IGFeedSection() {
@@ -339,7 +354,61 @@ function MidCTA() {
   );
 }
 
+/* ============================================================
+   CLINIC / SPACE
+   ============================================================ */
+function ConsultorioSection() {
+  return (
+    <section className="section section--cream" id="consultorio">
+      <div className="container">
+        <div className="section-header reveal">
+          <span className="eyebrow">O consultório</span>
+          <h2>Um espaço pensado para o cuidado individual.</h2>
+          <p className="lead" style={{ marginTop: 8 }}>
+            Estrutura técnica, planejamento digital e atmosfera tranquila — para que
+            cada atendimento seja conduzido com precisão e conforto.
+          </p>
+        </div>
+
+        <div className="clinic-grid">
+          <figure className="clinic-card clinic-card--wide reveal reveal-delay-1">
+            <div className="clinic-card-img">
+              <img
+                src="/public/consultorio-cadeira-01.jpg"
+                alt="Cadeira odontológica em ambiente moderno, com acabamento em mármore branco e detalhes em dourado"
+                loading="lazy"
+                width="1400"
+                height="1050"
+              />
+            </div>
+            <figcaption>
+              <strong>Atendimento clínico</strong>
+              <span>Equipamentos de última geração e ambiente projetado para o conforto do paciente.</span>
+            </figcaption>
+          </figure>
+
+          <figure className="clinic-card reveal reveal-delay-2">
+            <div className="clinic-card-img clinic-card-img--tall">
+              <img
+                src="/public/consultorio-planejamento-01.jpg"
+                alt="Tela exibindo planejamento digital com escaneamento 3D do sorriso"
+                loading="lazy"
+                width="960"
+                height="1200"
+              />
+            </div>
+            <figcaption>
+              <strong>Planejamento digital</strong>
+              <span>Cada caso é estudado com imagens 3D antes de qualquer procedimento — previsibilidade e técnica caminhando juntas.</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 Object.assign(window, {
   PainSection, TreatmentsSection, AuthoritySection,
-  IGFeedSection, TrustSection, ProcessSection, MidCTA,
+  ConsultorioSection, IGFeedSection, TrustSection, ProcessSection, MidCTA,
 });

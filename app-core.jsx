@@ -347,9 +347,6 @@ function Hero() {
             </a>
           </div>
           <div className="hero-credentials">
-            <div className="credential-portrait" aria-hidden="true">
-              <span>retrato<br/>do dr.</span>
-            </div>
             <div className="credential-info">
               <strong>Dr. Anderson Rocha Reinstein</strong>
               <span>Cirurgião-dentista · CRO 17951</span>
@@ -359,9 +356,15 @@ function Hero() {
         </div>
 
         <div className="hero-visual reveal reveal-delay-2">
-          <div className="hero-placeholder">
-            <span>foto profissional · consultório clínico</span>
-          </div>
+          <img
+            src="/public/dr-anderson-portrait-01.jpg"
+            alt="Dr. Anderson Reinstein, cirurgião-dentista, CRO 17951"
+            className="hero-portrait"
+            width="1200"
+            height="1200"
+            loading="eager"
+            fetchPriority="high"
+          />
           <div className="hero-stamp" aria-hidden="true">
             <strong>15</strong>
             <span className="hero-stamp-label">anos</span>

@@ -508,24 +508,8 @@ p { margin: 0; text-wrap: pretty; }
   margin-bottom: 48px;
 }
 .hero-credentials {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 20px 24px;
   padding-top: 32px;
   border-top: 1px solid var(--line);
-}
-.credential-portrait {
-  width: 76px; height: 76px;
-  border-radius: 50%;
-  background:
-    repeating-linear-gradient(45deg, var(--hero-stripe-a), var(--hero-stripe-a) 8px, var(--hero-stripe-b) 8px, var(--hero-stripe-b) 16px);
-  display: grid; place-items: center;
-  color: var(--primary-deep);
-  font-family: var(--font-mono);
-  font-size: 9px;
-  text-align: center;
-  border: 2px solid var(--bg-elev);
-  box-shadow: var(--shadow-sm);
 }
 .credential-info {
   display: flex; flex-direction: column;
@@ -553,28 +537,13 @@ p { margin: 0; text-wrap: pretty; }
   background: var(--primary-tint);
   box-shadow: var(--shadow-lg);
 }
-.hero-placeholder {
-  position: absolute; inset: 0;
-  background:
-    repeating-linear-gradient(135deg,
-      var(--hero-stripe-a),
-      var(--hero-stripe-a) 16px,
-      var(--hero-stripe-b) 16px,
-      var(--hero-stripe-b) 32px);
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  padding: 24px;
-}
-.hero-placeholder span {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.04em;
-  color: var(--primary-deep);
-  background: var(--glass-light);
-  padding: 6px 10px;
-  border-radius: var(--radius-xs);
-  backdrop-filter: blur(4px);
+.hero-portrait {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 .hero-stamp {
   position: absolute;
@@ -652,23 +621,43 @@ p { margin: 0; text-wrap: pretty; }
   color: var(--ink-soft);
   font-weight: 500;
 }
-.pain-quote {
-  position: relative;
-  padding: 40px;
-  background: var(--bg-elev);
-  border-radius: var(--radius-md);
-  border-left: 3px solid var(--gold-deep);
-  box-shadow: var(--shadow-sm);
+.pain-visual {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
 }
-.pain-quote .lead { margin: 0; }
-.pain-quote::before {
-  content: "\201C";
-  position: absolute;
-  top: -10px; left: 24px;
-  font-family: var(--font-display);
-  font-size: 80px;
+.pain-visual img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4/5;
+  object-fit: cover;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  display: block;
+}
+.pain-visual figcaption {
+  position: relative;
+  padding: 4px 0 0 22px;
+  border-left: 2px solid var(--gold-deep);
+}
+.pain-visual-eyebrow {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   color: var(--gold-deep);
-  line-height: 1;
+  margin-bottom: 10px;
+}
+.pain-visual figcaption p {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  margin: 0;
 }
 @media (max-width: 800px) {
   .pain-grid { grid-template-columns: 1fr; gap: 40px; }
@@ -733,12 +722,39 @@ p { margin: 0; text-wrap: pretty; }
   color: var(--ink-invert);
   border-color: var(--surface-deep);
   padding: 48px 40px;
+  overflow: hidden;
 }
 .t-card.featured h3 { color: var(--ink-invert); }
 .t-card.featured p { color: var(--ink-invert-soft); }
 .t-card.featured .t-card-glyph { background: var(--surface-deep-soft); color: var(--gold); }
 .t-card.featured .t-card-num { color: var(--gold); }
 .t-card.featured:hover .t-card-glyph { background: var(--gold); color: var(--surface-deep); }
+
+.t-card.has-image { padding-top: 0; }
+.t-card-image {
+  position: relative;
+  margin: 0 -40px 32px;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+}
+.t-card-image::after {
+  /* subtle bottom fade so the image meshes with the dark card */
+  content: "";
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 50%;
+  background: linear-gradient(180deg, transparent 0%, oklch(24% 0.04 215 / 0.55) 100%);
+  pointer-events: none;
+}
+.t-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.t-card.has-image:hover .t-card-image img { transform: scale(1.04); }
+.t-card.has-image .t-card-glyph { margin-top: 0; }
 
 @media (max-width: 1024px) {
   .treatments-grid { grid-template-columns: 1fr 1fr; }
@@ -877,7 +893,7 @@ p { margin: 0; text-wrap: pretty; }
 .ig-meta .btn { padding: 12px 20px; font-size: 14px; }
 .ig-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 14px;
 }
 .ig-post {
@@ -1387,6 +1403,65 @@ p { margin: 0; text-wrap: pretty; }
 .toast-dot {
   width: 8px; height: 8px; border-radius: 50%;
   background: var(--gold);
+}
+
+/* ============================================================
+   CLINIC / SPACE — Consultório section
+   ============================================================ */
+.clinic-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 36px;
+  margin-top: 56px;
+  align-items: start;
+}
+.clinic-card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+.clinic-card-img {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
+  background: var(--primary-tint);
+  aspect-ratio: 4 / 3;
+}
+.clinic-card-img--tall { aspect-ratio: 4 / 5; }
+.clinic-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s var(--ease);
+}
+.clinic-card:hover .clinic-card-img img { transform: scale(1.03); }
+
+.clinic-card figcaption {
+  padding: 20px 4px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.clinic-card figcaption strong {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+.clinic-card figcaption span {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+  max-width: 42ch;
+}
+
+@media (max-width: 800px) {
+  .clinic-grid { grid-template-columns: 1fr; gap: 40px; }
+  .clinic-card-img,
+  .clinic-card-img--tall { aspect-ratio: 4 / 3; }
 }
 
 /* ============================================================

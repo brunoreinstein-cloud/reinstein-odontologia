@@ -1,7 +1,7 @@
 /* global React, ReactDOM,
    Nav, Hero, useReveal, useTheme,
    PainSection, TreatmentsSection, AuthoritySection,
-   InterviewSection, CasesSection, TestimonialsSection, IGFeedSection,
+   ConsultorioSection, InterviewSection, CasesSection, TestimonialsSection, IGFeedSection,
    TrustSection, ProcessSection, MidCTA,
    LocationSection, FAQSection, ClosingSection, Footer, FloatingWA
 */
@@ -17,6 +17,7 @@ function App() {
         <PainSection />
         <TreatmentsSection />
         <AuthoritySection />
+        <ConsultorioSection />
         <InterviewSection />
         <CasesSection />
         <TestimonialsSection />
